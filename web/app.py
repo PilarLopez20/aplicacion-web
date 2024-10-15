@@ -1,16 +1,14 @@
 import web
 
 urls = (
-    '/(.*)', 'hello',
-  
+    '/', 'Index',
 )
+render = web.template.render('templates')
 app = web.application(urls, globals())
 
-class hello:
-    def GET(self, name):
-        if not name:
-            name = 'by Pilar'
-        return 'Hello docker ' + name + '!'
+class Index:
+    def GET(self):
+        return render.index() 
 
 if __name__ == "__main__":
     app.run()
